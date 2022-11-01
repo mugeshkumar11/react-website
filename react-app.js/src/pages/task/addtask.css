@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    max-width:1180px ;
+    margin: auto;
+    padding-left:15px ;
+    padding-right: 15px;
+}
+.adnav{
+  height: 80px;
+  }
+  .adnavbarflex{
+    display: flex;
+    justify-content: space-between;
+  }
+  .adnavlogo{
+    padding-top: 25px;
+  }
+  .adnavlogo h2{
+    font-size: 32px;
+    color: #fff;
+    text-decoration: none;
+  }
+  a{
+    text-decoration: none;
+  }
+  .addta{
+    background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%);
+    height: 850px;
+  }
+  .addtask{
+margin-bottom: 20px;
+  }
+  .addflex{
+    justify-content: flex-start;
+  }
+  .title h3{
+    font-size: 23px;
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-right: 13.5%;
+  }
+  .title input{
+    width: 29%;
+    padding-top:10px ;
+    padding-bottom: 10px;
+    border:2px solid black;
+  }
+  .taskdesc h3{
+    font-size: 23px;
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-right: 9%;
+  }
+  .taskdesc input{
+    width: 29%;
+    padding-top:0px ;
+    padding-bottom: 60px;
+    border:2px solid black;
+  }
+  .taskpri h3{
+    font-size: 23px;
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-right: 10.5%;
+  }
+  .tskcomp h3{
+    font-size: 23px;
+    color: #fff;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-right: 8%;
+  }
+  .taskbtn{
+    padding-top: 30px;
+  }
+  .taskbtn input{
+   padding: 5px 40px;
+   border:2px solid black;
+
+  }
+  .taskpri input{
+    border:2px solid black;
+  }

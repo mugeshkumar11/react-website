@@ -1,13 +1,15 @@
 import React  from "react";
 import { useState,} from "react";
 import './Login.css'
-//import RouterComponent from './pages/router/Header.js';
 import User from './Credential.json';
+import { useNavigate } from "react-router-dom";
 
 
 function Login() {
+  const Navigate = useNavigate();
   const [username, setusername,] = useState('');
   const [userpassword, setpassword] = useState('');
+  const [error, setError] = useState('');
 
 
   const handleUserName = (eve) => {
@@ -18,10 +20,24 @@ function Login() {
     setpassword(eve.target.value);
 
   };
+
   const handleSubmit = (eve) => {
-    console.log("state", username, userpassword,User);
     eve.preventDefault();
-  };
+    
+   console.log("state", username, userpassword,User);
+  User.filter((a)=>{
+        if(a.username===username && a.password===userpassword){
+            return Navigate('Header')
+  
+        }
+      })
+  
+      if(username===""||userpassword===""){
+         setError("invalid");
+         return;
+      }
+      console.log("state",username,userpassword);
+};
   
 
   return (
@@ -43,10 +59,13 @@ function Login() {
               <div className={"btn"}>
                 <button onClick={(eve) => handleSubmit(eve)}>Submit</button>
               </div>
+              <h1>{error}</h1>
             </form>
+            
           </div>
         </section>
       </section>
+    
     </div>
   );
 }
