@@ -1,18 +1,46 @@
 import React from "react";
 import "./addtask.css"
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-const Addtask = () => {
+function Addtask() {
+  const [text, settext] = useState('');
+  const [des, setdes] = useState('');
+  const [event, setevent] = useState([]);
+ 
+
+  const handletext = (val) => {
+    settext(val.target.value);
+  };
+
+  const handledesc = (val) => {
+    setdes(val.target.value);
+  };
+ 
+
+  const handlesum = (val) => {
+    val.preventDefault();
+    
+    const temp = {
+      text,
+      des,
+    };
+   
+    setevent ([...event, temp]);
+    
+    console.log("state", temp);
+
+  };
   return (
     <div className="addta">
-       <section className={'adnav'}>
+      <section className={'adnav'}>
         <section className={'container'}>
-      <div className={'adnavbarflex'}>
-      <div className={'adnavlogo'}>
-       <Link to={"/header"}> <h2>TASKAPP</h2></Link>
-      </div>
-      </div>
-      </section>
+          <div className={'adnavbarflex'}>
+            <div className={'adnavlogo'}>
+              <Link to={"/header"}> <h2>TASKAPP</h2></Link>
+            </div>
+          </div>
+        </section>
       </section>
 
       <section className={"addtask"}>
@@ -21,35 +49,22 @@ const Addtask = () => {
             <form>
               <div className={"title"}>
                 <h3>Enter task name:</h3>
-              <input type={'text'} placeholder={"taskname"}/>
+                <input  placeholder={"taskname"} onChange={handletext} />
               </div>
               <div className={"taskdesc"}>
-               <h3>Enter the description:</h3>
-               <input type={"textarea"} placeholder={"Message..."}/>
-              </div>
-              <div className={"taskpri"}>
-                <h3>Enter the prioritize:</h3>
-                <h3>Yes</h3>
-                <input type={"checkbox"}/>
-                <h3>No</h3>
-                <input type={"checkbox"}/>
-              </div>
-              <div className={"tskcomp"}>
-              <h3>Enter the completed:</h3>
-                <h3>Yes</h3>
-                <input type={"checkbox"}/>
-                <h3>No</h3>
-                <input type={"checkbox"}/>
+                <h3>Enter the description:</h3>
+                <textarea  placeholder={"Message..."} onChange={handledesc} />
               </div>
               <div className={"taskbtn"}>
-                <input type={"submit"}/>
+                <button onClick={(val) => handlesum(val)}>submit</button>
               </div>
             </form>
+            {event?.map((item , index) =><p key={index}>{item.text}</p>)}
           </div>
         </section>
       </section>
     </div>
   );
-};
+}
 
 export default Addtask;

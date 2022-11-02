@@ -29,11 +29,14 @@ function Login() {
         if(a.username===username && a.password===userpassword){
             return Navigate('Header')
   
-        }
+        }else{
+         setError("invalid username and password")
+          return;
+         }
       })
   
       if(username===""||userpassword===""){
-         setError("invalid");
+         setError("invalid username and password");
          return;
       }
       console.log("state",username,userpassword);
@@ -59,7 +62,7 @@ function Login() {
               <div className={"btn"}>
                 <button onClick={(eve) => handleSubmit(eve)}>Submit</button>
               </div>
-              <h1>{error}</h1>
+              <h4>{error}</h4>
             </form>
             
           </div>

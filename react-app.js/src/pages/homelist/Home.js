@@ -28,9 +28,9 @@ const Home = () => {
            <div className={'homemark'}>
             <h3>Mark as completion:</h3>
             <h3>Yes</h3>
-            <input type={"checkbox"}/>
+            <input type={"checkbox"}  name={"yes"}/>
             <h3>No</h3>
-            <input type={"checkbox"}/>
+            <input type={"checkbox"}  name={"yes"}/>
            </div>
            <div className={'homedate'}>
             <h3>Date:</h3>
@@ -39,16 +39,16 @@ const Home = () => {
            <div className={'homefil'}>
             <h3>Filter option:</h3>
             <h3>decending</h3>
-            <input type={"checkbox"}/>
+            <input type={"checkbox"} name={"yes"}/>
             <h3>asecending</h3>
-            <input type={"checkbox"}/>
+            <input type={"checkbox"} name={"yes"}/>
            </div>
            <div className={'homepri'}>
             <h3>Prioritize:</h3>
             <h3>Yes</h3>
-            <input type={"checkbox"}/>
+            <input type={"checkbox"}  name={"yes"}/>
             <h3>No</h3>
-            <input type={"checkbox"}/>
+            <input type={"checkbox"}  name={"yes"}/>
            </div>
           </div>
         </section>

@@ -43,7 +43,7 @@ body {
   }
   .addta{
     background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%);
-    height: 850px;
+    height: auto;
   }
   .addtask{
 margin-bottom: 20px;
@@ -71,34 +71,24 @@ margin-bottom: 20px;
     padding-bottom: 10px;
     margin-right: 9%;
   }
-  .taskdesc input{
+  .taskdesc textarea{
     width: 29%;
     padding-top:0px ;
     padding-bottom: 60px;
     border:2px solid black;
   }
-  .taskpri h3{
-    font-size: 23px;
-    color: #fff;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    margin-right: 10.5%;
-  }
-  .tskcomp h3{
-    font-size: 23px;
-    color: #fff;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    margin-right: 8%;
-  }
   .taskbtn{
     padding-top: 30px;
   }
-  .taskbtn input{
+  .taskbtn button{
    padding: 5px 40px;
    border:2px solid black;
 
   }
   .taskpri input{
     border:2px solid black;
+  }
+  p{
+    color: #fff;
+    font-size: 20px;
   }
