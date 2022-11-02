@@ -1,15 +1,21 @@
 import React  from "react";
-import { useState,} from "react";
+import { useState,useContext} from "react";
 import './Login.css'
 import User from './Credential.json';
 import { useNavigate } from "react-router-dom";
-
+import {statecontext} from '../context/Context';
 
 function Login() {
   const Navigate = useNavigate();
   const [username, setusername,] = useState('');
   const [userpassword, setpassword] = useState('');
   const [error, setError] = useState('');
+
+
+const {state, dispatch} = useContext(statecontext)
+console.log("staecontext",state);
+
+
 
 
   const handleUserName = (eve) => {
@@ -41,10 +47,15 @@ function Login() {
       }
       console.log("state",username,userpassword);
 };
-  
+
+const updateAge = () =>{
+dispatch({ type:"increment age"})
+}
 
   return (
+   
     <div>
+       
       <section className={"loginmpform"}>
         <section className={"container"}>
           <div className={"loginflex"}>
@@ -68,7 +79,8 @@ function Login() {
           </div>
         </section>
       </section>
-    
+      <h1>{state?.age}</h1>
+      <button onClick={() =>updateAge()}>Increment age</button>
     </div>
   );
 }

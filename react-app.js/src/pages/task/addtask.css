@@ -81,12 +81,10 @@ margin-bottom: 20px;
     padding-top: 30px;
   }
   .taskbtn button{
-   padding: 5px 40px;
+   padding: 7px 40px;
    border:2px solid black;
+   cursor: pointer;
 
-  }
-  .taskpri input{
-    border:2px solid black;
   }
   p{
     color: #fff;
