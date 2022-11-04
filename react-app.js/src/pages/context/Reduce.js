@@ -2,7 +2,7 @@
 
 export const initialstate = {
     age:24,
-    tasks:[],
+    event:[],
 };
 export const stateReducer = (state, action) =>{
     console.log("action", state, action);
@@ -11,6 +11,10 @@ export const stateReducer = (state, action) =>{
             ...state,
             age:state.age + 1
         }
-    }
-    return state;
+    }else if (action.type === 'setevent'){
+        return{
+            ...state,
+            event:action.payload,
+        }
+    }else return state;
 }

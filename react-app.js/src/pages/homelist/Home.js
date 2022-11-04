@@ -1,8 +1,16 @@
 import React from 'react';
 import './home.css';
 import { Link } from 'react-router-dom';
+import {statecontext} from '../context/Context';
+import { useContext } from 'react';
+
 
 const Home = () => {
+
+  const state = useContext(statecontext);
+  console.log('state', state);
+
+
   return (
     <div className={'homecont'}>
        <section className={'homenav'}>
@@ -17,6 +25,7 @@ const Home = () => {
       </div>
       </section>
       </section>
+    
       <section className={'homedetails'}>
         <section className={'container'}>
           <div className={'homeflex'}>
@@ -53,7 +62,7 @@ const Home = () => {
           </div>
         </section>
       </section>
-
+      <h1>{state?.event}</h1>
     </div>
   )
 }

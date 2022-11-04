@@ -1,13 +1,19 @@
 import React from "react";
 import "./addtask.css"
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState,useContext } from "react";
+import {statecontext} from '../context/Context';
 
 function Addtask() {
   const [text, settext] = useState('');
   const [des, setdes] = useState('');
   const [event, setevent] = useState([]);
  
+
+  const {state, dispatch} = useContext(statecontext)
+  console.log("staecontext",state);
+
+
 
   const handletext = (val) => {
     settext(val.target.value);
@@ -26,11 +32,17 @@ function Addtask() {
       des,
     };
    
-    setevent ([...event, temp]);
-    
+    // setevent ([...event, temp]);
+    settext('');
+    setdes('');
+     dispatch({type:"setevent", payload:[...state.event, temp]})
+   
     console.log("state", temp);
 
   };
+
+
+  
   return (
     <div className="addta">
       <section className={'adnav'}>
@@ -49,17 +61,17 @@ function Addtask() {
             <form>
               <div className={"title"}>
                 <h3>Enter task name:</h3>
-                <input  placeholder={"taskname"} onChange={handletext} />
+                <input value={text} placeholder={"taskname"} onChange={handletext} />
               </div>
               <div className={"taskdesc"}>
                 <h3>Enter the description:</h3>
-                <textarea  placeholder={"Message..."} onChange={handledesc} />
+                <textarea value={des}  placeholder={"Message..."} onChange={handledesc} />
               </div>
               <div className={"taskbtn"}>
                 <button onClick={(val) => handlesum(val)}>submit</button>
               </div>
             </form>
-            {event?.map((item , index) =><p key={index}>{item.text}</p>)}
+            {state.event?.map((item , index) =><p key={index}>{item.text}{item.des}</p>)}
           </div>
         </section>
       </section>
