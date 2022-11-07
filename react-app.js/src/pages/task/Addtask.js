@@ -1,17 +1,19 @@
 import React from "react";
 import "./addtask.css"
-import { Link } from "react-router-dom";
+import { Link,useSearchParams } from "react-router-dom";
 import { useState,useContext } from "react";
 import {statecontext} from '../context/Context';
 
 function Addtask() {
-  const [text, settext] = useState('');
+  const[param] = useSearchParams();
+
+  const [text, settext] = useState("");
   const [des, setdes] = useState('');
   const [event, setevent] = useState([]);
  
 
   const {state, dispatch} = useContext(statecontext)
-  console.log("staecontext",state);
+  console.log("statecontext",state.event);
 
 
 
@@ -44,6 +46,7 @@ function Addtask() {
 
   
   return (
+   
     <div className="addta">
       <section className={'adnav'}>
         <section className={'container'}>
