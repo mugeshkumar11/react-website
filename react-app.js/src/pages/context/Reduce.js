@@ -1,8 +1,9 @@
 
 
 export const initialstate = {
-    age:24,
+   // age:24,
     event:[],
+    isAuthenticated:false
 };
 export const stateReducer = (state, action) =>{
     console.log("action", state, action);
@@ -28,7 +29,7 @@ export const stateReducer = (state, action) =>{
         case 'deltask':
             return{
                 ...state,
-                event:state.event.filter((item)=>item.check !== action.payload)
+                event:state.event.filter((item)=>item.id!== action.payload)
             }
         case 'default':
             return{
@@ -38,7 +39,13 @@ export const stateReducer = (state, action) =>{
                     }return item;
                 })
             }
-         default:
+        case 'update':
+           return{
+            ...state,
+            event:[...state.event.filter((item)=>item.id!==action.payload.id),action.payload]
+           }
+
+        default:
             return state
 
             

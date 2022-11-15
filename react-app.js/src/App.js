@@ -12,8 +12,8 @@ import {initialstate, stateReducer} from "./pages/context/Reduce";
 
 
 function App() {
-  const [state, dispatch] = useReducer(stateReducer, initialstate )
-  console.log("statereduce", state);
+  const [state, dispatch] = useReducer(stateReducer, {event:[]} )
+  console.log("statereduce", state,dispatch);
   
 
  

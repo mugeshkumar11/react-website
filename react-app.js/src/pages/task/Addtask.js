@@ -1,19 +1,27 @@
 import React from "react";
 import "./addtask.css"
-import { Link,useSearchParams } from "react-router-dom";
+import { Link,Navigate,useNavigate,useSearchParams } from "react-router-dom";
 import { useState,useContext } from "react";
 import {statecontext} from '../context/Context';
+import {TextField,Button} from '@mui/material'
 
 function Addtask() {
-  const[param] = useSearchParams();
+  
+  const {state, dispatch} = useContext(statecontext)
+  console.log("statecontext",state.event);
 
-  const [text, settext] = useState("");
-  const [des, setdes] = useState('');
+  const[param] = useSearchParams();
+  const navigate = useNavigate()
+  const id = parseInt(param.get("id"))
+
+  let getid = state.event.findIndex(item=>item.id===id)
+
+
+  const [text, settext] = useState(state.event[getid]?.textform || "");
+  const [des, setdes] = useState(state.event[getid]?.descripe || "");
   const [event, setevent] = useState([]);
  
 
-  const {state, dispatch} = useContext(statecontext)
-  console.log("statecontext",state.event);
 
 
 
@@ -26,23 +34,37 @@ function Addtask() {
   };
  
 
-  const handlesum = (val) => {
-    val.preventDefault();
-    
+  const handlesum = (values) => {
+    values.preventDefault();
+   if(id){
     const temp = {
-      text,
-      des,
+      id:id,
+      textform:text,
+      descripe:des,
+      complete:false,
+      prioritize:false,
     };
-   
-    // setevent ([...event, temp]);
+   // console.log(temp);
+    dispatch({type:"update",payload:temp});
+    settext('')
+    setdes('')
+    navigate("/Home")
+   }
+   else{
+    const temp = {
+      id:state.event.length+1,
+      textform:text,
+      descripe:des,
+      prioritize:false,
+      complete:false
+    }  
+     dispatch({type:"setevent", payload:[...state.event, temp]});
     settext('');
     setdes('');
-     dispatch({type:"setevent", payload:[...state.event, temp]})
-   
-    console.log("state", temp);
+    //console.log(temp);
 
-  };
-
+   };
+  }
 
   
   return (
@@ -57,29 +79,33 @@ function Addtask() {
           </div>
         </section>
       </section>
-
+      <Link to={'/Home'}><Button variant="contained">Home page</Button></Link>
       <section className={"addtask"}>
         <section className={"container"}>
           <div className={"addflex"}>
             <form>
               <div className={"title"}>
-                <h3>Enter task name:</h3>
-                <input value={text} placeholder={"taskname"} onChange={handletext} />
+                
+                <TextField id="outlined-basic" label="Add task" variant="outlined" value={text} placeholder={"taskname"} onChange={handletext}/>
               </div>
               <div className={"taskdesc"}>
-                <h3>Enter the description:</h3>
-                <textarea value={des}  placeholder={"Message..."} onChange={handledesc} />
+               
+                <TextField id="outlined-basic" label="Add description" variant="outlined"value={des}  placeholder={"Message..."} onChange={handledesc} />
               </div>
               <div className={"taskbtn"}>
-                <button onClick={(val) => handlesum(val)}>submit</button>
+                
+                <Button variant="contained" onClick={(values) => handlesum(values)}>submit</Button>
+                
               </div>
             </form>
-            {state.event?.map((item , index) =><p key={index}>{item.text}{item.des}</p>)}
+           
           </div>
         </section>
       </section>
     </div>
   );
+
+
 }
 
 export default Addtask;

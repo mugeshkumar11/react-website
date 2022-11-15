@@ -3,7 +3,7 @@ import { useState} from "react";
 import './Login.css'
 import User from './Credential.json';
 import { useNavigate } from "react-router-dom";
-
+import {TextField,Button} from '@mui/material'
 
 
 function Login() {
@@ -23,7 +23,7 @@ function Login() {
     setpassword(eve.target.value);
 
   };
-
+   
   const handleSubmit = (eve) => {
     eve.preventDefault();
     
@@ -43,6 +43,7 @@ function Login() {
          return;
       }
       console.log("state",username,userpassword);
+    
 };
 
 
@@ -56,19 +57,21 @@ function Login() {
             <h1>Login</h1>
             <form>
               <div className={"input"}>
-                <label for="username">Username</label>
-                <input value={username} placeholder={"Username"} onChange={handleUserName} />
+               
+                <TextField id="outlined-basic" label="username" variant="outlined" value={username} placeholder={"Username"} onChange={handleUserName} />
               </div>
 
               <div className={"input"}>
-                <label for="password">Password</label>
-                <input type={"password"} value={userpassword} placeholder={"Password"} onChange={handleUserPassword} />
+               
+                <TextField id="outlined-basic" label="password" variant="outlined"  type={"password"} value={userpassword} placeholder={"Password"} onChange={handleUserPassword}/>
               </div>
               <div className={"btn"}>
-                <button onClick={(eve) => handleSubmit(eve)}>Submit</button>
+                
+                <Button variant="contained" onClick={(eve) => handleSubmit(eve)}>Submit</Button>
               </div>
               <h4>{error}</h4>
             </form>
+           
       
           </div>
         </section>

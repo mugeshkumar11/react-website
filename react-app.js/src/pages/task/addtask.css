@@ -51,42 +51,38 @@ margin-bottom: 20px;
   .addflex{
     justify-content: flex-start;
   }
-  .title h3{
-    font-size: 23px;
-    color: #fff;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    margin-right: 13.5%;
-  }
-  .title input{
+ .form{
+  padding-top: 30px;
+ }
+  .TextField{
     width: 29%;
-    padding-top:10px ;
+    padding-top:30px ;
     padding-bottom: 10px;
-    border:2px solid black;
+ 
+    background-color: #fff;
   }
-  .taskdesc h3{
-    font-size: 23px;
-    color: #fff;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    margin-right: 9%;
-  }
-  .taskdesc textarea{
-    width: 29%;
-    padding-top:0px ;
-    padding-bottom: 60px;
-    border:2px solid black;
-  }
-  .taskbtn{
-    padding-top: 30px;
-  }
-  .taskbtn button{
-   padding: 7px 40px;
-   border:2px solid black;
-   cursor: pointer;
-
-  }
+ 
+ .title{
+  margin-top: 30px;
+  margin-bottom: 30px;
+ }
+ .taskdesc{
+  margin-bottom: 30px;
+ }
+ .Button{
+  margin-bottom: 20px;
+  color: #fff;
+ }
+ Link{
+margin-left: 30px;
+ }
+ label{
+  color: #fff;
+ }
   p{
     color: #fff;
     font-size: 20px;
+  }
+.TextField{
+    color: #fff;
   }
