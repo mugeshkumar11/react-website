@@ -44,7 +44,11 @@ export const stateReducer = (state, action) =>{
             ...state,
             event:[...state.event.filter((item)=>item.id!==action.payload.id),action.payload]
            }
-
+        case "Addtask":
+            return {
+                ...state,
+               event:action.payload
+            }
         default:
             return state
 

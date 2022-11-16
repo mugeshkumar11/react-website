@@ -54,7 +54,7 @@ margin-bottom: 20px;
  .form{
   padding-top: 30px;
  }
-  .TextField{
+.TextField{
     width: 29%;
     padding-top:30px ;
     padding-bottom: 10px;
@@ -70,7 +70,7 @@ margin-bottom: 20px;
   margin-bottom: 30px;
  }
  .Button{
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: #fff;
  }
  Link{
@@ -86,3 +86,8 @@ margin-left: 30px;
 .TextField{
     color: #fff;
   }
+  .taskbtn{
+    margin-top: 30px;
+    
+  }
+  

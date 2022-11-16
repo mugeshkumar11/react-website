@@ -8,7 +8,7 @@ import Addtask from '../task/Addtask';
 import {Button} from '@mui/material'
 
 const Home = () => {
-  const [prioritize,setprioritize] = useState(false);
+ 
   const {state,dispatch} = useContext(statecontext);
   console.log('state', state);
 
@@ -31,10 +31,10 @@ const Home = () => {
     })
    }
   
-   const handlecomplete = (item, index) =>{
-   
+   const handlecomplete = (index) =>{
+   //console.log("item",index);
    let temp =[...state.event];
-    console.log("item", index,index.complete,temp[index].complete);
+   
     const data = temp?.map((Obj,i)=>{
       if(i===index){
         return{
@@ -44,7 +44,7 @@ const Home = () => {
       }else return Obj
     })
     // temp[index].complete = !item.complete;
-     dispatch(Addtask(data));
+     dispatch({type:"Addtask",payload:data});
    }
 
   return (
@@ -56,7 +56,10 @@ const Home = () => {
        <Link to={"/header"}> <h2>TASKAPP</h2></Link>
       </div>
       <div className={'tasklistbtn'}>
-        <Button variant="contained"  onClick={() => listitems()}>Addtask</Button>
+      <Button variant="contained">Ascending</Button>
+      <Button variant="contained">Decending</Button>
+      <Button variant="contained">Filter</Button>
+      <Button variant="contained"  onClick={() => listitems()}>Addtask</Button>
       </div>
       </div>
       </section>
@@ -67,14 +70,21 @@ const Home = () => {
       <div key={index} className='user'>
           <h3>{item. textform}</h3>
           <h5>{item. descripe}</h5>
-          <FormControlLabel control={<Checkbox Checked={item.complete} />} label="complete"  onChange={()=>handlecomplete(item,index) }/>
-          <FormControlLabel control={<Checkbox Checked={prioritize} />} label="prioritize"  onChange={()=> setprioritize(!prioritize)}/>
+          <h6>{item.datefun}</h6>
+          <FormControlLabel control={<Checkbox checked={item.complete} />} label="complete"  onChange={()=>handlecomplete(index) } color="secondary" />
+          <FormControlLabel control={<Checkbox checked={item.prioritize} />} label="prioritize"  color="secondary" />
       <section className={'homedetails'}>
       <section className={'container'}>
         <div className={'homeflex'}>
          <div className={'homebtn'}>
-         <button onClick={() => deleteitems(item.id)}>Delete</button>
-         <button onClick={() => edititems(item.id)}>Edit</button>
+         
+         <Button variant="contained" color="error" onClick={() => deleteitems(item.id)}>
+         Delete
+         </Button>
+         <Button variant="contained" color="success"  onClick={() => edititems(item.id)}>
+         Edit
+        </Button>
+         
          </div>
          {/* <div className={'homemark'}> */}
           {/* <input type={"checkbox"}  onChange={()=>checkeditem (item.id)}/> */}

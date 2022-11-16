@@ -34,7 +34,7 @@ body {
 }
 .homenavbarflex{
   display: flex;
-  justify-content: space-between;
+ justify-content: space-between;
 }
 .homenavlogo{
   padding-top: 50px;
@@ -48,11 +48,12 @@ a{
   text-decoration: none;
 }
 .tasklistbtn button{
-  padding: 8px 20px;
+  padding: 8px 10px;
+  margin-left: 15px;
 }
 .tasklistbtn{
   margin-top: 50px;
-  margin-right: 20%;
+
 }
 .homebtn h3{
   font-size: 23px;
@@ -89,4 +90,18 @@ a{
   color: #fff;
   padding-top: 20px;
   margin-right: 12%;
+}
+h3{
+font-size: 32px;
+color: #fff;
+padding-bottom: 15px;
+}
+h5{
+  font-size: 25px;
+  color: #fff;
+  padding-bottom: 15px;
+}
+h6{
+  font-size: 20px;
+  color: #fff;
 }
