@@ -112,7 +112,6 @@ function Addtask() {
                   label="Date"
                   type="date"
                   value={selectedDate}
-                  defaultValue="2017-05-24"
                   InputLabelProps={{
                     shrink: true,
                   }}

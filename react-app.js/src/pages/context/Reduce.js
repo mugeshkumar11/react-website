@@ -49,6 +49,16 @@ export const stateReducer = (state, action) =>{
                 ...state,
                event:action.payload
             }
+        case"ascend":
+        return{
+            ...state,
+            event:action.payload
+        }
+        case "decend":
+            return{
+                ...state,
+                event:action.payload
+            }
         default:
             return state
 

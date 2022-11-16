@@ -22,6 +22,22 @@ const Home = () => {
    
     dispatch({type:"deltask", payload:id})
    }
+   const handleascend = () =>{
+   let sort = state.event.sort((a, b) => a.textform < b.textform ? -1:1);
+   
+   dispatch ({type:"ascend", payload:sort})
+   }
+
+
+   const handledecend = () =>{
+    let sort = state.event.sort((a, b) => b.textform < a.textform ? -1:1);
+   
+    dispatch ({type:"decend", payload:sort})
+  }
+
+  const handlefilter = () =>{
+    
+  }
    const edititems = (id) =>{
     navigate({
       pathname:"/addtask",
@@ -56,9 +72,9 @@ const Home = () => {
        <Link to={"/header"}> <h2>TASKAPP</h2></Link>
       </div>
       <div className={'tasklistbtn'}>
-      <Button variant="contained">Ascending</Button>
-      <Button variant="contained">Decending</Button>
-      <Button variant="contained">Filter</Button>
+      <Button variant="contained" onClick={()=>handleascend()}>Ascending</Button>
+      <Button variant="contained" onClick={()=>handledecend()}>Decending</Button>
+      <Button variant="contained"onClick={()=>handlefilter()}>Filter</Button>
       <Button variant="contained"  onClick={() => listitems()}>Addtask</Button>
       </div>
       </div>
