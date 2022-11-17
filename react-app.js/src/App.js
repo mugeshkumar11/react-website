@@ -20,14 +20,28 @@ function App() {
   return (
     <statecontext.Provider value={{state, dispatch}}>
     <div className="App">
+      {state.Authenticated ? (
         <BrowserRouter>
     <Routes>
+        <Route path= "/" element={<Header/>}></Route>
+         <Route path= "Header" element={<Header/>}></Route> 
+        <Route path= "Addtask" element={<Addtask/>}></Route>
+        <Route path='home' element={<Home/>}></Route> 
+        <Route path='*' element={"/"}></Route>
+       
+    </Routes>
+    </BrowserRouter>):(
+
+    <BrowserRouter>
+    <Routes>
         <Route path= "/" element={<Login/>}></Route>
-        <Route path= "Header" element={<Header/>}></Route>
+         <Route path= "Header" element={<Header/>}></Route> 
         <Route path= "Addtask" element={<Addtask/>}></Route>
         <Route path='home' element={<Home/>}></Route>
     </Routes>
     </BrowserRouter>
+    )
+}
     </div>
     </statecontext.Provider>
    

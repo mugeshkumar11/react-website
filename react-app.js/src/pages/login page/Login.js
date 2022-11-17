@@ -1,9 +1,11 @@
 import React  from "react";
-import { useState} from "react";
-import './Login.css'
+import { useState,useContext} from "react";
+import './Login.css';
 import User from './Credential.json';
 import { useNavigate } from "react-router-dom";
-import {TextField,Button} from '@mui/material'
+import {TextField,Button} from '@mui/material';
+import {statecontext} from '../context/Context';
+
 
 
 function Login() {
@@ -12,6 +14,8 @@ function Login() {
   const [userpassword, setpassword] = useState('');
   const [error, setError] = useState('');
 
+  const { state, dispatch } = useContext(statecontext);
+  console.log("statecontext", state.event);
 
 
 
@@ -42,9 +46,22 @@ function Login() {
          setError("invalid username and password");
          return;
       }
-      console.log("state",username,userpassword);
     
+
+
      
+
+      localStorage.setItem("islogged",JSON.stringify(true));
+      JSON.filter((item)=>{
+        if(item.username===username && item.password===userpassword){
+          return Navigate("Header")
+
+        }
+      })
+
+      dispatch({type:"login", payload:state.isAuthenticated})
+    
+      console.log("state",username,userpassword,JSON);
 };
 
 

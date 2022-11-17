@@ -3,7 +3,7 @@
 export const initialstate = {
    // age:24,
     event:[],
-    isAuthenticated:false
+    Authenticated:JSON.parse(localStorage.getItem("islogged")) || false,
 };
 export const stateReducer = (state, action) =>{
     console.log("action", state, action);
@@ -58,6 +58,16 @@ export const stateReducer = (state, action) =>{
             return{
                 ...state,
                 event:action.payload
+            }
+        case "filitem":
+            return{
+                ...state,
+                event:action.payload
+            }
+
+        case "login":
+            return{
+                Authenticated:state.Authenticated=true
             }
         default:
             return state

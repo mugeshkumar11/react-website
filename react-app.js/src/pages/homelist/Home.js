@@ -3,7 +3,7 @@ import './home.css';
 import { createSearchParams, Link, useNavigate, useSearchParams } from 'react-router-dom';
 import {statecontext} from '../context/Context';
 import { useContext } from 'react';
-import {Checkbox, FormControlLabel} from '@mui/material';
+import {Checkbox, FormControlLabel, ToggleButton} from '@mui/material';
 import Addtask from '../task/Addtask';
 import {Button} from '@mui/material'
 
@@ -36,7 +36,17 @@ const Home = () => {
   }
 
   const handlefilter = () =>{
-    
+    let prioritize = state.event.filter((item) => {
+
+      if(item.prioritize===true || item.prioritize===false){
+        return item.prioritize
+       
+      }else{
+        return 
+      } 
+         
+    })
+    dispatch({type:"filitem", payload:prioritize })
   }
    const edititems = (id) =>{
     navigate({
