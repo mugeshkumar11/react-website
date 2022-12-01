@@ -69,6 +69,11 @@ export const stateReducer = (state, action) =>{
             return{
                 Authenticated:state.Authenticated=true
             }
+        case "search":
+            return{
+                ...state,
+                event:action.payload
+            }
         default:
             return state
 
