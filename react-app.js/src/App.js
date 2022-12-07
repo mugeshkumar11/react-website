@@ -1,13 +1,13 @@
-import logo from './logo.svg';
+
 import './App.css';
-import {BrowserRouter,Routes,Route,Navigate} from "react-router-dom";
+import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Login from './pages/login page/Login';
 import Header from './pages/header/Header';
 import Addtask from './pages/task/Addtask';
 import Home from './pages/homelist/Home';
 import {statecontext} from './pages/context/Context.js';
 import { useReducer } from 'react';
-import {initialstate, stateReducer} from "./pages/context/Reduce";
+import {stateReducer} from "./pages/context/Reduce";
 
 
 

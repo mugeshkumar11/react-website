@@ -10,8 +10,8 @@ import {statecontext} from '../context/Context';
 
 function Login() {
   const Navigate = useNavigate();
-  const [username, setusername,] = useState('');
-  const [userpassword, setpassword] = useState('');
+  const [username, setusername,] = useState("mugeshk");
+  const [userpassword, setpassword] = useState('mugesh');
   const [error, setError] = useState('');
 
   const { state, dispatch } = useContext(statecontext);
@@ -76,12 +76,12 @@ function Login() {
             <form>
               <div className={"input"}>
                
-                <TextField id="outlined-basic" label="username" variant="outlined" value={username} placeholder={"Username"} onChange={handleUserName} />
+                <TextField id="outlined-basic" label="username" variant="outlined" value={'mugeshk'} placeholder={"Username"} onChange={handleUserName} />
               </div>
 
               <div className={"input"}>
                
-                <TextField id="outlined-basic" label="password" variant="outlined"  type={"password"} value={userpassword} placeholder={"Password"} onChange={handleUserPassword}/>
+                <TextField id="outlined-basic" label="password" variant="outlined"  type={"password"} value={'mugesh'} placeholder={"Password"} onChange={handleUserPassword}/>
               </div>
               <div className={"btn"}>
                 

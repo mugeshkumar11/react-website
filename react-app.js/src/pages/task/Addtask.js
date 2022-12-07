@@ -1,9 +1,9 @@
 import React from "react";
 import "./addtask.css";
-import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useContext } from "react";
 import { statecontext } from "../context/Context";
-import { TextField, Button, colors , FormControlLabel,Checkbox} from "@mui/material";
+import { TextField, Button, FormControlLabel,Checkbox} from "@mui/material";
 
 
 function Addtask() {
@@ -18,7 +18,6 @@ function Addtask() {
 
   const [text, settext] = useState(state.event[getid]?.textform || "");
   const [des, setdes] = useState(state.event[getid]?.descripe || "");
-  const [event, setevent] = useState([]);
   const [selectedDate, setSelectedDate] = useState(state.event[getid]?.datefun||"");
   const [prioritize,setprioritize] = useState(false);
 

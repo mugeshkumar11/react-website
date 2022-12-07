@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import "./home.css";
-import { createSearchParams, Link, useNavigate, useSearchParams,} from "react-router-dom";
+import { createSearchParams, Link, useNavigate} from "react-router-dom";
 import { statecontext } from "../context/Context";
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 import { Checkbox, FormControlLabel, TextField } from "@mui/material";
-import Addtask from "../task/Addtask";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
