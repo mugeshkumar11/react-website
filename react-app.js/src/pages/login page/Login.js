@@ -49,17 +49,17 @@ function Login() {
     
 
 
-     
+      dispatch({type:"login", payload:state.isAuthenticated})
 
-      localStorage.setItem("islogged",JSON.stringify(true));
+      sessionStorage.setItem("islogged",JSON.stringify(true));
       JSON.filter((item)=>{
         if(item.username===username && item.password===userpassword){
-          return Navigate("Header")
+          return Navigate("/Header")
 
         }
       })
 
-      dispatch({type:"login", payload:state.isAuthenticated})
+     
     
       console.log("state",username,userpassword,JSON);
 };

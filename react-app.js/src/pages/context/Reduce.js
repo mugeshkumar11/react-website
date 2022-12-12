@@ -67,6 +67,7 @@ export const stateReducer = (state, action) =>{
 
         case "login":
             return{
+                ...state,
                 Authenticated:state.Authenticated=true
             }
         case "search":

@@ -78,9 +78,7 @@ function Addtask() {
           </div>
         </section>
       </section>
-      <Link to={"/Home"}>
-        <Button variant="contained">Home page</Button>
-      </Link>
+      
       <section className={"addtask"}>
         <section className={"container"}>
           <div className={"addflex"}>
@@ -117,7 +115,7 @@ function Addtask() {
                   onChange={handleDateChange}
                 />
               </div>
-              <FormControlLabel control={<Checkbox checked={prioritize} />} label="prioritize"  onChange={()=> setprioritize(!prioritize)} color="secondary" />
+              <span> <FormControlLabel control={<Checkbox checked={prioritize} />} label="prioritize" style={{color:"block"}} onChange={()=> setprioritize(!prioritize)} color="secondary" /></span>
               <div className={"taskbtn"}>
                 <Button
                   variant="contained"
@@ -125,6 +123,9 @@ function Addtask() {
                 >
                   submit
                 </Button>
+                <Link to={"/Home"}>
+                 <Button variant="contained">Home page</Button>
+               </Link>
               </div>
              
             </form>

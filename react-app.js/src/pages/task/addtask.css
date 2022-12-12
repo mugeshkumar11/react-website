@@ -43,13 +43,15 @@ body {
   }
   .addta{
     background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%);
-    height: auto;
+    height: 700px;
   }
   .addtask{
 margin-bottom: 20px;
+
   }
   .addflex{
-    justify-content: flex-start;
+    background-color: #fff;
+    padding: 20px;
   }
  .form{
   padding-top: 30px;
@@ -58,7 +60,6 @@ margin-bottom: 20px;
     width: 29%;
     padding-top:30px ;
     padding-bottom: 10px;
- 
     background-color: #fff;
   }
  
@@ -87,7 +88,11 @@ margin-left: 30px;
     color: #fff;
   }
   .taskbtn{
+    display: flex;
     margin-top: 30px;
-    
+    justify-content: space-evenly;
   }
-  
+
+  span{
+    color: black;
+  }
